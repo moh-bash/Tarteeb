@@ -1,18 +1,17 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useColorScheme } from 'react-native';
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import AppTabs from '@/components/app-tabs';
+import { Stack } from "expo-router";
+import { SQLiteProvider } from "expo-sqlite";
 
-SplashScreen.preventAutoHideAsync();
+import { initializeDatabase } from "@/database/migrations/initialize";
+import "../../global.css";
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+export default function RootLayout() {
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AnimatedSplashOverlay />
-      <AppTabs />
-    </ThemeProvider>
+    <SQLiteProvider
+      databaseName="pdf-library.db"
+      onInit={initializeDatabase}
+    >
+      <Stack />
+    </SQLiteProvider>
   );
 }
