@@ -14,6 +14,13 @@ export async function getDocuments(
   );
 }
 
+export async function getDocumentById(
+  db: SQLiteDatabase,
+  id: number,
+): Promise<Document | null> {
+  return db.getFirstAsync<Document>("SELECT * FROM documents WHERE id = ?", id);
+}
+
 export async function createDocument(
   db: SQLiteDatabase,
   input: CreateDocumentInput,

@@ -29,3 +29,11 @@ export async function savePdfFile(
     throw error;
   }
 }
+
+export function deletePdfFile(uri: string): void {
+  const file = new File(uri);
+
+  if (file.exists) {
+    file.delete();
+  }
+}

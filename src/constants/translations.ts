@@ -1,0 +1,53 @@
+export type Language = "ar" | "en";
+
+export const translations = {
+  en: {
+    settings: "Settings",
+    appearance: "Appearance",
+    theme: "Theme",
+    light: "Light",
+    dark: "Dark",
+    language: "Language",
+    arabic: "العربية",
+    english: "English",
+    general: "General",
+    settingsDescription: "Customize your app experience.",
+    home: "Home",
+    subjects: "Subjects",
+    documents: "Documents",
+    groups: "Groups",
+    importPdf: "Import PDF files",
+    delete: "Delete",
+    cancel: "Cancel",
+    back: "Back",
+    noDocuments: "No PDF files yet.",
+    groupDocuments: "Group documents",
+    Your_subjects: "Your subjects",
+  },
+
+  ar: {
+    settings: "الإعدادات",
+    appearance: "المظهر",
+    theme: "السمة",
+    light: "فاتح",
+    dark: "داكن",
+    language: "اللغة",
+    arabic: "العربية",
+    english: "الإنجليزية",
+    general: "عام",
+    settingsDescription: "خصص تجربة استخدام التطبيق.",
+    home: "الرئيسية",
+    subjects: "المواد",
+    documents: "المستندات",
+    groups: "المجموعات",
+    importPdf: "استيراد ملفات PDF",
+    delete: "حذف",
+    cancel: "إلغاء",
+    back: "رجوع",
+    noDocuments: "لا توجد ملفات PDF حتى الآن.",
+    groupDocuments: "مستندات المجموعة",
+    Your_subjects: "المواد الخاصة بك",
+  },
+} as const;
+
+export type TranslationKey = keyof typeof translations.en;

@@ -1,4 +1,4 @@
-
+import { useSettings } from "@/contexts/settings.context";
 import { useEffect, useState } from "react";
 import {
     Alert,
@@ -22,6 +22,7 @@ import type { Subject } from "@/database/types";
 
 export default function HomeScreen() {
   const db = useSQLiteContext();
+  const { t } = useSettings();
 
   const [subjects, setSubjects] = useState<Subject[]>([]);
   const [name, setName] = useState("");
@@ -78,12 +79,8 @@ export default function HomeScreen() {
 
   return (
     <View className="flex-1 bg-canvas px-6 pt-16">
-      <Text className="text-xs font-bold tracking-widest text-muted">
-        MY LIBRARY
-      </Text>
-
       <Text className="mt-2 text-3xl font-extrabold text-ink">
-        Your subjects.
+        {t("Your_subjects")}
       </Text>
 
       <Text className="mt-2 text-sm text-muted">
